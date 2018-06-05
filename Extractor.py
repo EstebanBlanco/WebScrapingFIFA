@@ -30,7 +30,7 @@ def ExtractData():
             positionMovement = "Down"
         averagePoints = i.find("td", {"class": "tbl-points-avg"}).span.text
         confederation = i.find("td", {"class": "tbl-confederation"}).span.text
-        #print(confederation)
+        print(confederation)
 
 
         print(DatabaseManager.InsertData(ranking,
