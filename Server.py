@@ -1,16 +1,17 @@
 from flask import Flask, jsonify
-
 import DatabaseManager
-import os
-import subprocess
 
-# import Ontology
+
 app = Flask(__name__)
 
 def make_response(result):
     response = jsonify(result[0])
     response.status_code = result[1]
     return response
+
+@app.route('/')
+def hello_world():
+  return 'Hello, World!'
 
 # GETs
 @app.route('/getData', methods=['GET','POST'])
