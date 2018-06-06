@@ -11,7 +11,7 @@ def make_response(result):
 
 @app.route('/', methods=['GET','POST'])
 def hello_world():
-  return 'Hello Worlds!'
+  return 'Hello Wurld!'
 
 # GETs
 @app.route('/getData', methods=['GET','POST'])
