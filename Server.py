@@ -11,7 +11,7 @@ def make_response(result):
 
 @app.route('/', methods=['GET','POST'])
 def hello_world():
-  return 'Hello Wurld!'
+  return 'Hello Woooooooooooooorld!'
 
 # GETs
 @app.route('/getData', methods=['GET','POST'])
@@ -19,4 +19,4 @@ def getData():
     return make_response(DatabaseManager.SelectData())
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run()
