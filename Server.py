@@ -9,9 +9,9 @@ def make_response(result):
     response.status_code = result[1]
     return response
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def hello_world():
-  return 'Hello, World!'
+  return 'Hello Worlds!'
 
 # GETs
 @app.route('/getData', methods=['GET','POST'])
