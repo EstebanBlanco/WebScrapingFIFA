@@ -1,5 +1,7 @@
 from flask import Flask, jsonify
 import DatabaseManager
+import Hilo
+import threading
 
 
 app = Flask(__name__)
@@ -18,5 +20,9 @@ def hello_world():
 def getData():
     return make_response(DatabaseManager.SelectData())
 
+hilo = Hilo.Hilo()
+
 if __name__ == '__main__':
+    hilo.run()
+    print("Corriendo")
     app.run()
