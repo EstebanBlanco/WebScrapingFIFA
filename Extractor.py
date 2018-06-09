@@ -1,15 +1,18 @@
 from bs4 import BeautifulSoup
 import  DatabaseManager
-
+import urllib3
 
 
 def ExtractData():
+    http = urllib3.PoolManager()
+    r = http.request('GET', 'https://www.fifa.com/fifa-world-ranking/ranking-table/men/index.html')
+    soup = BeautifulSoup(r.data, "html5lib")
 
-    response = "FIFA_Men_Page.html"
-    with open(response) as fp:
-        soup = BeautifulSoup(fp, "html5lib")
-
-    #print(soup.find("table").prettify())
+    # response = "FIFA_Men_Page.html"
+    # with open(response) as fp:
+    #     soup = BeautifulSoup(fp, "html5lib")
+    #
+    # #print(soup.find("table").prettify())
     trs = soup.find("table").tbody.find_all("tr")
     for i in trs:
         ranking = i.find("td", {"class": "tbl-rank"}).span.text
@@ -45,7 +48,7 @@ def ExtractData():
         averagePoints,
         confederation))
 
-
+ExtractData()
 print(DatabaseManager.SelectData())
 
 
