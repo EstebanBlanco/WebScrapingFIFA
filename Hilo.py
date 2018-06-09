@@ -1,5 +1,6 @@
 import threading
 import Extractor
+import DatabaseManager
 import time
 
 
@@ -21,6 +22,7 @@ class Hilo(threading.Thread):
 
     def run(self):
         while not self.quit:
+            DatabaseManager.DeleteData()
             Extractor.ExtractData()
             self.delay(300000)
 

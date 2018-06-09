@@ -1,6 +1,14 @@
 import psycopg2
 import DBConnection
 
+def DeleteData():
+    conn = psycopg2.connect(**DBConnection.Credentials.DB_PARAMS)
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM RankingFIFA')
+    conn.commit()
+    cursor.close()
+    conn.close()
+
 def InsertData(ranking,
         countryName,
         flagLink,
